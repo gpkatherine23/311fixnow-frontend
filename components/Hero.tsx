@@ -1,42 +1,29 @@
-import Image from "next/image";
-import TestimonialsAvatars from "./TestimonialsAvatars";
-import config from "@/config";
+'use client';
 
-const Hero = () => {
+import Link from 'next/link';
+import Image from 'next/image';
+import MiamiSkyline from '@/public/leadspace.jpeg'; // adjust path if needed
+
+export default function Hero() {
   return (
-    <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
-      <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
-        <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight">
-          Launch your Agentic SaaS in days, not weeks
-        </h1>
-        <p className="text-lg opacity-80 leading-relaxed">
-          FeNAgO empowers students, developers, startups, and entrepreneurs to build
-          fully agentic SaaS solutions at lightning speed by handling security
-          (logins & registration), database setup, SEO, and monetization right out
-          of the box—powered by Next.js, Tailwind, and React. All you bring is
-          your idea!
-        </p>
-        <a
-          href="https://fenago.com"
-          className="btn btn-primary btn-wide"
-        >
-          Get {config.appName}
-        </a>
+    <section className="relative h-[600px] w-full bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url('/leadspace.jpeg')` }}>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
 
-        <TestimonialsAvatars priority={true} />
-      </div>
-      <div className="lg:w-full">
-        <Image
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
-          alt="FeNAgO product demo"
-          className="w-full"
-          priority={true}
-          width={500}
-          height={500}
-        />
+      {/* Floating content */}
+      <div className="relative z-10 text-center max-w-3xl px-6 text-white">
+        <p className="text-xl mb-6 font-medium drop-shadow">
+          311 Miami-Dade County Prediction empowers residents and officials by
+          providing predictive insights into how long common service requests are likely
+          to take—based on real county data. Know what to expect before you submit.
+        </p>
+        <Link
+          href="/estimate"
+          className="inline-block bg-[#003366] text-white px-6 py-3 rounded hover:bg-[#002244] transition font-semibold"
+        >
+          Estimate the Time of Your Request
+        </Link>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
