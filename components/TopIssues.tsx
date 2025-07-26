@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const TopIssues = () => {
-  const [issues, setIssues] = useState({});
+  const [issues, setIssues] = useState<Record<string, number>>({});
 
   useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/top-issues`)
